@@ -29,6 +29,15 @@ Features
 * Extreme fast query with polars
 * Support both Thai and English
 
+
+Installation
+------------
+
+```
+pip install git+https://github.com/longman694/thai_address.git
+```
+
+
 Credits
 -------
 
