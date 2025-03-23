@@ -5,7 +5,7 @@ Credits
 Development Lead
 ----------------
 
-* Napat Charoenlarpkul <napat@thinknroll.com>
+* Napat Charoenlarpkul <longman_694@hotmail.com>
 
 Contributors
 ------------

@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=61.0", "polars[core]"]
+requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -8,17 +8,17 @@ version = "0.1.0"
 description = "A Python package for querying Thai provinces, districts, and subdistricts with ease."
 readme = "README.rst"
 authors = [
-  {name = "Napat Charoenlarpkul", email = "napat@thinknroll.com"}
+  {name = "Napat Charoenlarpkul", email = "longman_694@hotmail.com"}
 ]
 maintainers = [
-  {name = "Napat Charoenlarpkul", email = "napat@thinknroll.com"}
+  {name = "Napat Charoenlarpkul", email = "longman_694@hotmail.com"}
 ]
 classifiers = [
 
 ]
 license = {text = "MIT license"}
 dependencies = [
-
+  "polars[core]"
 ]
 
 [project.optional-dependencies]
@@ -40,8 +40,6 @@ package-dir = {"" = "src"}
 
 [tool.setuptools.package-data]
 "*" = ["*.*"]
-
-
 
 
 # Mypy
