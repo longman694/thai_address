@@ -2,8 +2,6 @@
 
 """Tests for `thai_address` package."""
 
-import pytest
-
 from src.thai_address import ThaiAddress
 
 

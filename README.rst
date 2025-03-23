@@ -38,6 +38,70 @@ Installation
     pip install git+https://github.com/longman694/thai_address.git
 
 
+Usage
+-----
+
+Thai
+
+.. code-block:: python
+
+    >>> from thai_address import ThaiAddress
+    >>> ThaiAddress.query_provinces_th('สมุทร')
+
+    ['สมุทรปราการ', 'สมุทรสาคร', 'สมุทรสงคราม']
+
+    >>> ThaiAddress.query_amphures_th(province='สมุทรปราการ')
+
+    ['เมืองสมุทรปราการ', 'บางบ่อ', 'บางพลี', 'พระประแดง', 'พระสมุทรเจดีย์', 'บางเสาธง']
+
+    >>> ThaiAddress.query_amphures_th('พระ', province='สมุทรปราการ')
+
+    ['พระประแดง', 'พระสมุทรเจดีย์']
+
+    >>> ThaiAddress.query_districts_th(province='สมุทรปราการ', amphure='พระสมุทรเจดีย์')
+
+    ['นาเกลือ', 'บ้านคลองสวน', 'แหลมฟ้าผ่า', 'ปากคลองบางปลากด', 'ในคลองบางปลากด']
+
+    >>> ThaiAddress.query_districts_th('บา', province='สมุทรปราการ', amphure='พระสมุทรเจดีย์')
+
+    ['ปากคลองบางปลากด', 'ในคลองบางปลากด']
+
+English
+
+.. code-block:: python
+
+    >>> from thai_address import ThaiAddress
+    >>> ThaiAddress.query_provinces_en('Samut')
+
+    ['Samut Prakan', 'Samut Sakhon', 'Samut Songkhram']
+
+    >>> ThaiAddress.query_amphures_en('pra', province='Samut Prakan')
+
+    ['Phra Pradaeng', 'Phra Samut Chedi']
+
+    >>> ThaiAddress.query_districts_en('ba', province='Samut Prakan', amphure='Phra Samut Chedi')
+
+    ['Ban Khlong Suan', 'Pak Klong Bang Pla Kot', 'Nai Khlong Bang Pla Kot']
+
+Get full table
+
+.. code-block:: python
+
+    >>> from thai_address import ThaiAddress
+    >>> ThaiAddress.get_address_df().head()
+    shape: (5, 12)
+    ┌───────────────┬────────────────┬────────────────────────────┬──────────────┬───┬─────────────┬──────────┬────────┬─────────┐
+    │ district_code ┆ district_th    ┆ district_en                ┆ amphure_code ┆ … ┆ province_en ┆ zip_code ┆ LAT    ┆ LONG    │
+    │ ---           ┆ ---            ┆ ---                        ┆ ---          ┆   ┆ ---         ┆ ---      ┆ ---    ┆ ---     │
+    │ i32           ┆ str            ┆ str                        ┆ i32          ┆   ┆ str         ┆ i32      ┆ f64    ┆ f64     │
+    ╞═══════════════╪════════════════╪════════════════════════════╪══════════════╪═══╪═════════════╪══════════╪════════╪═════════╡
+    │ 100101        ┆ พระบรมมหาราชวัง ┆ Phra Borom Maha Ratchawang ┆ 1001         ┆ … ┆ Bangkok     ┆ 10200    ┆ 13.751 ┆ 100.492 │
+    │ 100102        ┆ วังบูรพาภิรมย์     ┆ Wang Burapha Phirom        ┆ 1001         ┆ … ┆ Bangkok     ┆ 10200    ┆ 13.744 ┆ 100.499 │
+    │ 100103        ┆ วัดราชบพิธ       ┆ Wat Ratchabophit           ┆ 1001         ┆ … ┆ Bangkok     ┆ 10200    ┆ 13.75  ┆ 100.499 │
+    │ 100104        ┆ สำราญราษฎร์     ┆ Samran Rat                 ┆ 1001         ┆ … ┆ Bangkok     ┆ 10200    ┆ 13.751 ┆ 100.503 │
+    │ 100105        ┆ ศาลเจ้าพ่อเสือ    ┆ San Chao Pho Suea          ┆ 1001         ┆ … ┆ Bangkok     ┆ 10200    ┆ 13.754 ┆ 100.497 │
+    └───────────────┴────────────────┴────────────────────────────┴──────────────┴───┴─────────────┴──────────┴────────┴─────────┘
+
 Credits
 -------
 

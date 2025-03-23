@@ -8,20 +8,20 @@ class ThaiAddress:
 
     @staticmethod
     @lru_cache()
-    def _load_df():
+    def get_address_df() -> pl.DataFrame:
         source = Path(__file__).parent / 'data.parquet'
         return pl.read_parquet(source)
 
     @staticmethod
-    def query_provinces_th(search):
-        df = ThaiAddress._load_df()
+    def query_provinces_th(search) -> list[str]:
+        df = ThaiAddress.get_address_df()
         return df.select('province_th').unique(maintain_order=True).filter(
             pl.col('province_th').str.contains(search)
         ).to_series().to_list()
 
     @staticmethod
-    def query_amphures_th(search='', province=''):
-        df = ThaiAddress._load_df()
+    def query_amphures_th(search='', province='') -> list[str]:
+        df = ThaiAddress.get_address_df()
         if province:
             df = df.filter(
                 pl.col('province_th') == province,
@@ -31,8 +31,8 @@ class ThaiAddress:
         ).to_series().to_list()
 
     @staticmethod
-    def query_districts_th(search='', province='', amphure=''):
-        df = ThaiAddress._load_df()
+    def query_districts_th(search='', province='', amphure='') -> list[str]:
+        df = ThaiAddress.get_address_df()
         if province:
             df = df.filter(
                 pl.col('province_th') == province,
@@ -46,15 +46,15 @@ class ThaiAddress:
         ).to_series().to_list()
 
     @staticmethod
-    def query_provinces_en(search):
-        df = ThaiAddress._load_df()
+    def query_provinces_en(search) -> list[str]:
+        df = ThaiAddress.get_address_df()
         return df.select('province_en').unique(maintain_order=True).filter(
             pl.col('province_en').str.contains(r"(?i)" + search)
         ).to_series().to_list()
 
     @staticmethod
-    def query_amphures_en(search='', province=''):
-        df = ThaiAddress._load_df()
+    def query_amphures_en(search='', province='') -> list[str]:
+        df = ThaiAddress.get_address_df()
         if province:
             df = df.filter(
                 pl.col('province_en') == province,
@@ -64,8 +64,8 @@ class ThaiAddress:
         ).to_series().to_list()
 
     @staticmethod
-    def query_districts_en(search='', province='', amphure=''):
-        df = ThaiAddress._load_df()
+    def query_districts_en(search='', province='', amphure='') -> list[str]:
+        df = ThaiAddress.get_address_df()
         if province:
             df = df.filter(
                 pl.col('province_en') == province,
