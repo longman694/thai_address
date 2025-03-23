@@ -33,9 +33,9 @@ Features
 Installation
 ------------
 
-```
-pip install git+https://github.com/longman694/thai_address.git
-```
+.. code-block:: bash
+
+    pip install git+https://github.com/longman694/thai_address.git
 
 
 Credits
