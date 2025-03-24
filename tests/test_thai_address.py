@@ -93,3 +93,14 @@ def test_query_distinct_en():
 
     districts = ThaiAddress.query_districts_en('Chong', province='Chon Buri')
     assert districts == []
+
+
+def test_zip_code_th():
+    zip_code = ThaiAddress.get_zip_code_th('ชลบุรี', 'เมืองชลบุรี', 'อ่างศิลา')
+    assert zip_code == [20000]
+
+
+def test_zip_code_en():
+    zip_code = ThaiAddress.get_zip_code_en('Chon Buri', 'Mueang Chon Buri', 'Ang Sila')
+    assert zip_code == [20000]
+

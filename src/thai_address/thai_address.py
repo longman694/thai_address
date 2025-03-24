@@ -46,6 +46,15 @@ class ThaiAddress:
         ).to_series().to_list()
 
     @staticmethod
+    def get_zip_code_th(province, amphure, district) -> list[int]:
+        df = ThaiAddress.get_address_df()
+        return df.filter(
+            pl.col('province_th') == province,
+            pl.col('amphure_th') == amphure,
+            pl.col('district_th') == district
+       ).select('zip_code').unique(maintain_order=True).to_series().to_list()
+
+    @staticmethod
     def query_provinces_en(search) -> list[str]:
         df = ThaiAddress.get_address_df()
         return df.select('province_en').unique(maintain_order=True).filter(
@@ -77,3 +86,12 @@ class ThaiAddress:
         return df.select('district_en').unique(maintain_order=True).filter(
             pl.col('district_en').str.contains(r"(?i)" + search)
         ).to_series().to_list()
+
+    @staticmethod
+    def get_zip_code_en(province, amphure, district) -> list[int]:
+        df = ThaiAddress.get_address_df()
+        return df.filter(
+            pl.col('province_en') == province,
+            pl.col('amphure_en') == amphure,
+            pl.col('district_en') == district
+        ).select('zip_code').to_series().to_list()

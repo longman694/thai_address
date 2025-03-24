@@ -66,6 +66,10 @@ Thai
 
     ['ปากคลองบางปลากด', 'ในคลองบางปลากด']
 
+    >>> ThaiAddress.get_zip_code_th('ชลบุรี', 'เมืองชลบุรี', 'อ่างศิลา')
+
+    [20000]
+
 English
 
 .. code-block:: python
@@ -82,6 +86,10 @@ English
     >>> ThaiAddress.query_districts_en('ba', province='Samut Prakan', amphure='Phra Samut Chedi')
 
     ['Ban Khlong Suan', 'Pak Klong Bang Pla Kot', 'Nai Khlong Bang Pla Kot']
+
+    >>>  ThaiAddress.get_zip_code_en('Chon Buri', 'Mueang Chon Buri', 'Ang Sila')
+
+    [20000]
 
 Get full table
 
