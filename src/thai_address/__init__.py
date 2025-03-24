@@ -2,6 +2,6 @@
 
 __author__ = """Napat Charoenlarpkul"""
 __email__ = 'longman_694@hotmail.cim'
-__version__ = '0.1.0'
+__version__ = '0.2.0'
 
 from .thai_address import ThaiAddress  # noqa
